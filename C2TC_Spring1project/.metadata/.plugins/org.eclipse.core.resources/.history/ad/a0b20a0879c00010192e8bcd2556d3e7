@@ -1,0 +1,5 @@
+package com.tnsif.certificateservice.service;
+
+public class CertificateService {
+
+}

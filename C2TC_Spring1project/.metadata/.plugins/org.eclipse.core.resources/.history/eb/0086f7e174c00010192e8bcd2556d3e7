@@ -1,0 +1,51 @@
+package com.tnsif.certificateservice.controller;
+
+import com.tnsif.certificateservice.entity.certificate;
+import com.tnsif.certificateservice.repository.certificaterepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/certificates")
+public class certificatecontroller {
+
+    @Autowired
+    private certificaterepository repository;
+
+    @GetMapping
+    public List<certificate> getAllCertificates() {
+        return repository.findAll();
+    }
+
+    @PostMapping
+    public certificate createCertificate(@RequestBody certificate certificate) {
+        return repository.save(certificate);
+    }
+
+    @GetMapping("/{id}")
+    public certificate getCertificateById(@PathVariable Long id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    @PutMapping("/{id}")
+    public certificate updateCertificate(@PathVariable Long id, @RequestBody certificate updated) {
+        return repository.findById(id)
+                .map(existing -> {
+                    existing.setStudentName(updated.getStudentName());
+                    existing.setCourseName(updated.getCourseName());
+                    existing.setCertificateNumber(updated.getCertificateNumber());
+                    existing.setIssueDate(updated.getIssueDate());
+                    existing.setGrade(updated.getGrade());
+                    existing.setInstitution(updated.getInstitution());
+                    existing.setStatus(updated.getStatus());
+                    return repository.save(existing);
+                }).orElse(null);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteCertificate(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
+}

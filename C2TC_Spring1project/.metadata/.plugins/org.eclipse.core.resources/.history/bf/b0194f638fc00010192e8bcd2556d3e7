@@ -1,0 +1,11 @@
+package com.tnsif.certificateservice;
+
+import org.springframework.boot.SpringApplication;
+public class CertificateserviceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CertificateserviceApplication.class, args);
+	}
+
+}
+ 

@@ -1,0 +1,8 @@
+package com.tnsif.certificateservice.config;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class CertificateConfig {
+    // Add custom beans or configurations here if needed later
+}

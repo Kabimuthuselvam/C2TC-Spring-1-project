@@ -1,0 +1,5 @@
+package com.tnsif.CertificateService.Config;
+
+public class CertificateConfig {
+
+}

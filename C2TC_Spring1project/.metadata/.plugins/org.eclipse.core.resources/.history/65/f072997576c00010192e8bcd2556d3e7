@@ -1,0 +1,5 @@
+package com.tnsif.CertificateService.Controller;
+
+public class CertificateController {
+
+}

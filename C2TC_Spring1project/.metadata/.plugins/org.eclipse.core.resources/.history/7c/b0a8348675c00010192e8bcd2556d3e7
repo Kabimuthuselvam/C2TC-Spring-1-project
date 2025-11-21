@@ -1,0 +1,7 @@
+package com.tnsif.certificateservice.repository;
+
+import com.tnsif.certificateservice.entity.certificate;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface certificaterepository extends JpaRepository<certificate, Long> {
+}
